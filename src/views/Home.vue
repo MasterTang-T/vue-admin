@@ -1,6 +1,6 @@
 <template>
 <div class="home">
-    <a-button>AButton</a-button>
+  home page
 </div>
 </template>
 
