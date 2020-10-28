@@ -11,7 +11,6 @@ const mutations = {
 
 const actions = {
     login({ commit }, userInfo) {
-        console.log(userInfo,'userInfo')
         return new Promise((resolve, reject) => {
             login(userInfo).then((response) => {
                 const { data } = response;

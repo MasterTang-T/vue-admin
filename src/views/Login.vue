@@ -46,9 +46,9 @@ export default {
         };
     },
     methods: {
-        ...mapActions('user',{
-            login:"login",
-        }),
+        ...mapActions('user',[
+            "login"
+        ]),
        
         handleSubmit() {
             let _this = this;
