@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 import 'normalize.css/normalize.css'
 import '@/permission.js'
+import '@/lib/Antd.js'
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

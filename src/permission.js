@@ -9,7 +9,6 @@ NProgress.configure({
 console.log(router.beforeEach, 'beforeEach')
 
 router.beforeEach((to, from, next) => {
-    console.log(to)
     if (to.path === '/') {
         next({
             path: '/login',
