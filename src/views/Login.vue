@@ -23,6 +23,7 @@
 <script>
 import {
     mapActions,
+    mapState,
 } from 'vuex'
 export default {
     data() {
@@ -45,6 +46,11 @@ export default {
             }
         };
     },
+    computed:{
+        ...mapState({
+            "isLogin":state => state.user.isLogin
+        })
+    },
     methods: {
         ...mapActions('user',[
             "login"
@@ -53,7 +59,11 @@ export default {
         handleSubmit() {
             let _this = this;
             _this.login(_this.formInline).then(() => {
-                console.log('success')
+                if(_this.isLogin){
+                    _this.$router.push({
+                        path: "/home"
+                    })
+                }
             }).catch((err)=>{
                 _this.$message.warning('登录失败')
                 console.log(err)

@@ -4,7 +4,7 @@ const state = {
 }
 
 const mutations = {
-    SET_LOGIN_STATUS: (state,login_status) => {
+    SET_LOGIN_STATUS: (state, login_status) => {
         state.isLogin = login_status
     },
 }

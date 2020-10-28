@@ -6,8 +6,6 @@ NProgress.configure({
 }) // NProgress Configuration
 
 
-console.log(router.beforeEach, 'beforeEach')
-
 router.beforeEach((to, from, next) => {
     if (to.path === '/') {
         next({
