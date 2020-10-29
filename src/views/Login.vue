@@ -16,6 +16,7 @@
                 Log in
             </a-button>
         </a-form-model-item>
+        <a-spin :spinning='spinning'></a-spin>
     </a-form-model>
 </div>
 </template>
@@ -43,7 +44,8 @@ export default {
                     message: 'Please input the password',
                     trigger: 'blur'
                 }]
-            }
+            },
+            spinning:false
         };
     },
     computed:{
@@ -58,13 +60,16 @@ export default {
        
         handleSubmit() {
             let _this = this;
+            _this.spinning = true;
             _this.login(_this.formInline).then(() => {
+                _this.spinning = false;
                 if(_this.isLogin){
                     _this.$router.push({
                         path: "/home"
                     })
                 }
             }).catch((err)=>{
+                _this.spinning = false;
                 _this.$message.warning('登录失败')
                 console.log(err)
             })

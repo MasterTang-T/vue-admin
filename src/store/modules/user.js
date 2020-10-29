@@ -1,6 +1,7 @@
-import {login} from '@/api/login'
+import { login } from '@/api/login'
+import {setLoginStatus,getLoginStatus} from '@/lib/auth'
 const state = {
-    isLogin:false,
+    isLogin:getLoginStatus() || false,
 }
 
 const mutations = {
@@ -14,7 +15,8 @@ const actions = {
         return new Promise((resolve, reject) => {
             login(userInfo).then((response) => {
                 const { data } = response;
-                commit('SET_LOGIN_STATUS',data.info.login_status);
+                commit('SET_LOGIN_STATUS', data.info.login_status);
+                setLoginStatus(data.info.login_status,10);
                 resolve()
             }).catch((error) => {
                 
