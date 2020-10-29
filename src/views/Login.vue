@@ -16,7 +16,7 @@
                 Log in
             </a-button>
         </a-form-model-item>
-        <a-spin :spinning='spinning'></a-spin>
+        <a-spin :spinning='spinning' class="spinning"></a-spin>
     </a-form-model>
 </div>
 </template>
@@ -87,5 +87,9 @@ export default {
     justify-content: center;
     align-items: center;
     background: #0b1447;
+}
+.spinning{
+    position: absolute;
+    top:50%;
 }
 </style>
