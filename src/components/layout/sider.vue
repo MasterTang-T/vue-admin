@@ -4,7 +4,7 @@
         <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
             <div class="logo" />
             <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-                <a-menu-item v-for="route in routes" :key="route.path" v-if="route.path === '/login'?false:true">
+                <a-menu-item v-for="route in routes" :key="route.path" v-if="route.path === '/login'?false:true" @click="handleCurPath(route.path)">
                     <a-icon type="user" />
                     <span>{{route.name}}</span>
                 </a-menu-item>
@@ -15,7 +15,7 @@
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
-                
+                <t-content :path='curPath'></t-content>
             </a-layout-content>
         </a-layout>
     </a-layout>
@@ -23,11 +23,13 @@
 </template>
 
 <script>
+import TContent from './content'
 export default {
     data() {
         return {
             route_arr:[],
-            collapsed:false
+            collapsed:false,
+            curPath:'/home'
         }
     },
     created(){
@@ -38,6 +40,15 @@ export default {
         routes() {
             return this.route_arr
         },
+    },
+    components:{
+        TContent
+    },
+    methods:{
+        handleCurPath(curPath) {
+            let _this = this;
+            _this.curPath = curPath;
+        }
     }
 
 }

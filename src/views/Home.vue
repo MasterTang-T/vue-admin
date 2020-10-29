@@ -1,6 +1,6 @@
 <template>
 <div>
-   <b-layout></b-layout>
+    home page
 </div>
 </template>
 

@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
-
+import Layout from '@/components/layout/sider'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Layout
   },
   {
     path: '/login',
